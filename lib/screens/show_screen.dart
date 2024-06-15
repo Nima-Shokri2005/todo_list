@@ -86,7 +86,12 @@ class _ShowScreenState extends State<ShowScreen> {
                                         onPressed: () {
                                           Navigator.of(context).pop();
                                         },
-                                        child: const Text('انصراف'),
+                                        child: const Text(
+                                          'انصراف',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       ),
                                       const SizedBox(width: 20),
                                       ElevatedButton(
@@ -97,7 +102,12 @@ class _ShowScreenState extends State<ShowScreen> {
                                           box.delete(helper.key);
                                           Navigator.pop(context);
                                         },
-                                        child: const Text('تایید'),
+                                        child: const Text(
+                                          'تایید',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       ),
                                     ],
                                   )
@@ -127,25 +137,28 @@ class _ShowScreenState extends State<ShowScreen> {
                         ),
                         child: const Icon(Icons.edit),
                       ),
-                      child: Card(
-                        margin: EdgeInsets.all(width * 0.02),
-                        child: ListTile(
-                          title: Text(helper.username),
-                          subtitle: Text('موضوع: ${helper.title}'),
-                          trailing: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                UserModel userModel = UserModel(
-                                    username: helper.username,
-                                    title: helper.title,
-                                    description: helper.description,
-                                    isDone: !helper.isDone);
-                                box.put(helper.key, userModel);
-                              });
-                            },
-                            icon: helper.isDone
-                                ? const Icon(Icons.check_box)
-                                : const Icon(Icons.check_box_outline_blank),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 18.0),
+                        child: Card(
+                          margin: EdgeInsets.all(width * 0.02),
+                          child: ListTile(
+                            title: Text(helper.username),
+                            subtitle: Text('موضوع: ${helper.title}'),
+                            trailing: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  UserModel userModel = UserModel(
+                                      username: helper.username,
+                                      title: helper.title,
+                                      description: helper.description,
+                                      isDone: !helper.isDone);
+                                  box.put(helper.key, userModel);
+                                });
+                              },
+                              icon: helper.isDone
+                                  ? const Icon(Icons.check_box)
+                                  : const Icon(Icons.check_box_outline_blank),
+                            ),
                           ),
                         ),
                       ),

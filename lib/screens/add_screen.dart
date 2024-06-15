@@ -92,7 +92,7 @@ class _AddScreenState extends State<AddScreen> {
                         title: const Text('انجام شده',
                             style:
                                 TextStyle(fontFamily: 'sahel', fontSize: 19)),
-                        value: false,
+                        value: true,
                         groupValue: isDone,
                         onChanged: (value) {
                           setState(() {
@@ -107,7 +107,7 @@ class _AddScreenState extends State<AddScreen> {
                           'انجام نشده',
                           style: TextStyle(fontFamily: 'sahel', fontSize: 19),
                         ),
-                        value: true,
+                        value: false,
                         groupValue: isDone,
                         onChanged: (value) {
                           setState(() {
